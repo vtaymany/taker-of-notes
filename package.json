@@ -10,14 +10,5 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vtaymany/taker-of-notes.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/vtaymany/taker-of-notes/issues"
-  },
-  "homepage": "https://github.com/vtaymany/taker-of-notes#readme"
+  }
 }
