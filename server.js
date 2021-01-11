@@ -15,7 +15,7 @@ app.use(express.static('public'))
 
 // ROUTER
 
-// require('./apiRoutes')(app)
+require('./public/assets/js/apiRoutes')(app)
 require('./public/assets/js/htmlRoutes')(app)
 
 // LISTENER
