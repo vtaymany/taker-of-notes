@@ -1,9 +1,15 @@
 const fs = require('fs')
-const dataTable = require('./db.json')
+let dataTable = require('../../../db/db.json')
+
 // ===============================================================================
 // ROUTING
 // ===============================================================================
 
+function indexNotes() {
+  dataTable.forEach((newNote, i) => {
+    newNote.id = i + 1
+  })
+}
 module.exports = (app) => {
   // API GET Requests
 
@@ -13,10 +19,25 @@ module.exports = (app) => {
 
   // API POST Requests
 
-  // app.post('/api/notes', (req, res) => {
-  //   fs.appendFile('./db.json', ' This is my text.', function (err) {
-  //     if (err) throw err
-  //     console.log('Updated!')
-  //   })
-  // })
+  app.post('/api/notes', (req, res) => {
+    const newNote = req.body
+    // newNote.id = dataTable.length + 1
+    dataTable.push(newNote)
+    indexNotes()
+    fs.writeFileSync('./db/db.json', JSON.stringify(dataTable))
+    res.json(dataTable)
+  })
+  // API DELETE Requests
+
+  app.delete('/api/notes/:id', (req, res) => {
+    const noteID = req.params.id
+    for (var i = 0; i < dataTable.length; i++) {
+      if (dataTable[i].id == noteID) {
+        dataTable.splice(i, 1)
+        indexNotes()
+      }
+    }
+    fs.writeFileSync('./db/db.json', JSON.stringify(dataTable))
+    res.json(dataTable)
+  })
 }
