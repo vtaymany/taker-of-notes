@@ -21,7 +21,6 @@ module.exports = (app) => {
 
   app.post('/api/notes', (req, res) => {
     const newNote = req.body
-    // newNote.id = dataTable.length + 1
     dataTable.push(newNote)
     indexNotes()
     fs.writeFileSync('./db/db.json', JSON.stringify(dataTable))
