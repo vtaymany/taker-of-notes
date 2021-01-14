@@ -37,6 +37,7 @@ node server.js
 - Add the ability to send and share notes with friends/coworkers
 
 **Screenshots**
+
 ![team.html](./public/assets/screenshots/taker-of-notes-screen-capture.gif 'Taker of notes screen capture')
 
 ## Credits
